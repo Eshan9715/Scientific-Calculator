@@ -8,8 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0;
-    TextView tvmain,tvsec;
+    Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bdot,bpi,bequal,bplus,bmin,bmul,bdiv,binv,bsqrt,bsquare,bfact,bln,blog,btan,bcos,bsin,bb1,bb2,bc,bac;    TextView tvmain,tvsec;
     String pi = "3.14159265";
 
     @Override
@@ -90,6 +89,79 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 tvmain.setText(tvmain.getText()+"0");
+            }
+        });
+
+        bdot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvmain.setText(tvmain.getText()+".");
+            }
+        });
+        bac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvmain.setText("");
+                tvsec.setText("");
+            }
+        });
+        bc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String val = tvmain.getText().toString();
+                val = val.substring(0, val.length() - 1);
+                tvmain.setText(val);
+            }
+        });
+        bplus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvmain.setText(tvmain.getText()+"+");
+            }
+        });
+        bmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvmain.setText(tvmain.getText()+"-");
+            }
+        });
+        bmul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvmain.setText(tvmain.getText()+"×");
+            }
+        });
+        bdiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvmain.setText(tvmain.getText()+"÷");
+            }
+        });
+        bsqrt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String val = tvmain.getText().toString();
+                double r = Math.sqrt(Double.parseDouble(val));
+                tvmain.setText(String.valueOf(r));
+            }
+        });
+        bb1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvmain.setText(tvmain.getText()+"(");
+            }
+        });
+        bb2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvmain.setText(tvmain.getText()+")");
+            }
+        });
+        bpi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvsec.setText(bpi.getText());
+                tvmain.setText(tvmain.getText()+pi);
             }
         });
     }
